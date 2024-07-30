@@ -6,27 +6,28 @@ import Colors from '../constants/Colors';
 
 const GameOverScreen = props => {
     return (
-       <ScrollView>
-         <View style={styles.screen}>
-            <TitleText>The Game is Over!</TitleText>
-            <View style={styles.imageContainer }>
-                <Image
-                    source={require('../assets/success.png')}
-                    style={styles.image} resizeMode="cover" />
-            </View>
-            <View style={styles.resultContainer}>
-                <BodyText style={styles.resultText}>
-                    Your phone needed{' '}
-                    <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to
-                    guess the number{' '}
-                    <Text style={styles.highlight}>{props.userNumber}</Text>.
-                </BodyText>
-            </View>
-           
+        <ScrollView>
+        <View style={styles.screen}>
+           <TitleText>The Game is Over!</TitleText>
+           <View style={styles.imageContainer }>
+               <Image
+                   source={require('../assets/success.png')}
+                   style={styles.image} resizeMode="cover" />
+           </View>
+           <View style={styles.resultContainer}>
+               <BodyText style={styles.resultText}>
+                   Your phone needed{' '}
+                   <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to
+                   guess the number{' '}
+                   <Text style={styles.highlight}>{props.userNumber}</Text>.
+               </BodyText>
+           </View>
+          
+      
+           <Button title="NEW GAME" onPress={props.onRestart} />
+       </View>
+      </ScrollView>
        
-            <Button title="NEW GAME" onPress={props.onRestart} />
-        </View>
-       </ScrollView>
     );
 };
 
