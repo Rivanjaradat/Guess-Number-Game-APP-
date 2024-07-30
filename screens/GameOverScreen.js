@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button,Image } from 'react-native';
+import { View, Text, StyleSheet, Button,Image,Dimensions,ScrollView } from 'react-native';
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
 import Colors from '../constants/Colors';
+
 const GameOverScreen = props => {
     return (
-        <View style={styles.screen}>
+       <ScrollView>
+         <View style={styles.screen}>
             <TitleText>The Game is Over!</TitleText>
             <View style={styles.imageContainer }>
                 <Image
@@ -24,6 +26,7 @@ const GameOverScreen = props => {
        
             <Button title="NEW GAME" onPress={props.onRestart} />
         </View>
+       </ScrollView>
     );
 };
 
@@ -31,7 +34,8 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingVertical: 10
     },
     image: {
         width: '100%',
@@ -39,13 +43,14 @@ const styles = StyleSheet.create({
     },
     imageContainer:
     {
-        width: 300,
-        height: 300,
-        borderRadius: 150,
+        width: Dimensions.get('window').width * 0.7,
+        height: 
+        Dimensions.get('window').width * 0.7,
+        borderRadius:Dimensions.get('window').width * 0.7 /2,
         borderWidth: 3,
         overflow: 'hidden',
         borderColor: 'black',
-        marginVertical: 30
+        marginVertical: Dimensions.get('window').height / 30
 
     },
     highlight: {
@@ -53,12 +58,12 @@ const styles = StyleSheet.create({
         fontFamily:'open-sans-bold'
     },
     resultContainer: {
-        marginHorizontal: 30,
+        marginHorizontal:   Dimensions.get('window').height / 60,
        marginVertical:15
     },
     resultText: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize:Dimensions.get('window').height < 400 ? 16 : 20
       
     }
 
